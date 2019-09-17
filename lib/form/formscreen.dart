@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_surat_ui/config/palette.dart';
+import 'package:form_surat_ui/form/formijinkeramaian.dart';
 import 'package:form_surat_ui/form/formlayout.dart';
 
 class FormScreen extends StatefulWidget {
@@ -18,41 +20,60 @@ class _FormScreenState extends State<FormScreen> {
     }
 
     return Scaffold(
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          elevation: 5.0,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FormIjinKeramaian()));
+          },
+          child: Icon(Icons.add),
+        ),
+      ),
+      backgroundColor: Pal.mediumGrey,
       appBar: AppBar(
         title: Text("Form"),
         backgroundColor: Colors.grey[100],
       ),
-      body: Container(
-        margin: EdgeInsets.all(5),
-        child: Column(
-          children: <Widget>[
-            FormBuilder(
-              key: _textField,
-              child: Column(
-                children: <Widget>[
-                  FormLayout(
-                    title: "NIK",
-                    attribute: "nik",
-                    keyboardType: TextInputType.numberWithOptions(),
-                    
-                  ),
-                  SizedBox(height: 10),
-                  FormLayoutRadio(
-                    title: "Radio",
-                    attribute: "radio",
-                  ),
-                ],
+      body: ContainerBackground(
+        singleChildScrollView: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              FormBuilder(
+                key: _textField,
+                child: Column(
+                  children: <Widget>[
+                    FormLayout(
+                      title: "NIK",
+                      attribute: "nik",
+                      keyboardType: TextInputType.number,
+                      maxlines: 1,
+                    ),
+                    SizedBox(height: 10),
+                    FormLayoutRadio(
+                      title: "Radio",
+                      attribute: "radio",
+                    ),
+                    FormLayout(
+                      title: "Alamat Lengkap",
+                      attribute: "alamat",
+                      keyboardType: TextInputType.text,
+                      maxlines: 3,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                onSave();
-              },
-              child: Text("Simpan"),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
-            )
-          ],
+              RaisedButton(
+                onPressed: () {
+                  onSave();
+                },
+                child: Text("Simpan"),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+              )
+            ],
+          ),
         ),
       ),
     );
