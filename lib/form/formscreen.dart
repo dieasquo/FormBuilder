@@ -14,7 +14,6 @@ class _FormScreenState extends State<FormScreen> {
 
     void onSave() {
       _textField.currentState.save();
-      _textField.currentState.save();
       print(_textField.currentState.value);
     }
 
@@ -34,6 +33,8 @@ class _FormScreenState extends State<FormScreen> {
                   FormLayout(
                     title: "NIK",
                     attribute: "nik",
+                    keyboardType: TextInputType.numberWithOptions(),
+                    
                   ),
                   SizedBox(height: 10),
                   FormLayoutRadio(
