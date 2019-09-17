@@ -36,45 +36,41 @@ class _FormScreenState extends State<FormScreen> {
         title: Text("Form"),
         backgroundColor: Colors.grey[100],
       ),
-      body: ContainerBackground(
-        singleChildScrollView: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              FormBuilder(
-                key: _textField,
-                child: Column(
-                  children: <Widget>[
-                    FormLayout(
-                      title: "NIK",
-                      attribute: "nik",
-                      keyboardType: TextInputType.number,
-                      maxlines: 1,
-                    ),
-                    SizedBox(height: 10),
-                    FormLayoutRadio(
-                      title: "Radio",
-                      attribute: "radio",
-                    ),
-                    FormLayout(
-                      title: "Alamat Lengkap",
-                      attribute: "alamat",
-                      keyboardType: TextInputType.text,
-                      maxlines: 3,
-                    ),
-                  ],
+      body: Column(
+        children: <Widget>[
+          FormBuilder(
+            key: _textField,
+            child: Column(
+              children: <Widget>[
+                FormLayout(
+                  title: "NIK",
+                  attribute: "nik",
+                  keyboardType: TextInputType.number,
+                  maxlines: 1,
                 ),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  onSave();
-                },
-                child: Text("Simpan"),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5)),
-              )
-            ],
+                SizedBox(height: 10),
+                FormLayoutRadio(
+                  title: "Radio",
+                  attribute: "radio",
+                ),
+                FormLayout(
+                  title: "Alamat Lengkap",
+                  attribute: "alamat",
+                  keyboardType: TextInputType.text,
+                  maxlines: 3,
+                ),
+              ],
+            ),
           ),
-        ),
+          RaisedButton(
+            onPressed: () {
+              onSave();
+            },
+            child: Text("Simpan"),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          )
+        ],
       ),
     );
   }

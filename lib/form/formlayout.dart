@@ -10,11 +10,7 @@ class FormLayout extends StatefulWidget {
   final TextInputType keyboardType;
 
   const FormLayout(
-      {Key key,
-      this.title,
-      this.attribute,
-      this.keyboardType,
-      this.maxlines})
+      {Key key, this.title, this.attribute, this.keyboardType, this.maxlines})
       : super(key: key);
 
   _FormLayoutState createState() => _FormLayoutState();
@@ -88,30 +84,6 @@ class _FormLayoutRadioState extends State<FormLayoutRadio> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class ContainerBackground extends StatefulWidget {
-  final SingleChildScrollView singleChildScrollView;
-
-  const ContainerBackground({Key key, this.singleChildScrollView})
-      : super(key: key);
-
-  _ContainerBackgroundState createState() => _ContainerBackgroundState();
-}
-
-class _ContainerBackgroundState extends State<ContainerBackground> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      padding: EdgeInsets.all(15),
-      child: widget.singleChildScrollView,
     );
   }
 }
